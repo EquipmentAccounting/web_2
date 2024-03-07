@@ -1,11 +1,11 @@
 import { styled } from '@stitches/react';
 
-import { Link } from '../../atoms/nav-link';
+import { Link } from '../../atoms';
 
 export const AsideList = () => {
   return (
     <Nav>
-      <Link to='/aquipment' text='Оборудование' />
+      <Link to='/' text='Оборудование' />
       <Link to='/map' text='Карта' />
     </Nav>
   );
@@ -14,5 +14,5 @@ export const AsideList = () => {
 const Nav = styled('nav', {
   display: 'flex',
   flexDirection: 'column',
-  gap: '16px',
+  gap: '8px',
 });

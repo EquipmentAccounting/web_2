@@ -18,6 +18,7 @@ export const Header = () => {
 
 const StyledHeader = styled('div', {
   padding: '16px',
+  paddingInline: '32px',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'end',

@@ -1,1 +1,1 @@
-# Frontend часть для проекта EquipmentAccounting для практики ИСИТ, ВГУ.
+# Frontend часть проекта EquipmentAccounting для практики ИСИТ, ВГУ.
