@@ -1,7 +1,7 @@
 import { useUnit } from 'effector-react';
 
-import { Loader, SubmitButton } from '../atoms';
 import { loginFx } from '../../model';
+import { Loader, SubmitButton } from '../atoms';
 
 export const FormBottom = () => {
   const isLoading = useUnit(loginFx.pending);

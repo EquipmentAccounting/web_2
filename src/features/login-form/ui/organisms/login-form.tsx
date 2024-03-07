@@ -1,20 +1,20 @@
-import { styled } from '@stitches/react';
-
-import { FormBottom } from '../molecules';
-import { useForm } from 'effector-forms';
-import { loginForm, loginFx } from '../../model';
-import { FormEvent } from 'react';
 import { TextField } from '@consta/uikit/TextField';
+import { styled } from '@stitches/react';
+import { useForm } from 'effector-forms';
 import { useUnit } from 'effector-react';
+import { FormEvent } from 'react';
+
+import { loginForm, loginFx } from '../../model';
+import { FormBottom } from '../molecules';
 
 export const LoginForm = () => {
-  const {fields, hasError, submit } = useForm(loginForm);
+  const { fields, hasError, submit } = useForm(loginForm);
   const pending = useUnit(loginFx.pending);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit();
-  }
+  };
 
   return (
     <Form onSubmit={onSubmit}>
@@ -23,9 +23,9 @@ export const LoginForm = () => {
         label='Username'
         value={fields.username.value}
         disabled={pending}
-        onChange={value => fields.username.onChange(value || '')}
+        onChange={(value) => fields.username.onChange(value || '')}
         status={hasError('username') ? 'alert' : undefined}
-        caption={fields.username.errorText({'username': 'Username required'})}
+        caption={fields.username.errorText({ username: 'Username required' })}
         withClearButton
       />
       <TextField
@@ -33,9 +33,9 @@ export const LoginForm = () => {
         label='Password'
         value={fields.password.value}
         disabled={pending}
-        onChange={value => fields.password.onChange(value || '')}
+        onChange={(value) => fields.password.onChange(value || '')}
         status={hasError('password') ? 'alert' : undefined}
-        caption={fields.password.errorText({'password': 'Password required'})}
+        caption={fields.password.errorText({ password: 'Password required' })}
         withClearButton
       />
       <FormBottom />

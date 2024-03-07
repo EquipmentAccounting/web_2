@@ -8,7 +8,7 @@ export const loginForm = createForm({
       rules: [
         {
           name: 'username',
-          validator: (value: string) => !!value
+          validator: (value: string) => !!value,
         },
       ],
     },
@@ -17,19 +17,19 @@ export const loginForm = createForm({
       rules: [
         {
           name: 'password',
-          validator: (value: string) => !!value
+          validator: (value: string) => !!value,
         },
       ],
     },
   },
   validateOn: ['submit'],
-})
+});
 
 export const loginFx = createEffect(() => {
-  console.log("HELLO");
+  console.log('HELLO');
 });
 
 sample({
   clock: loginForm.formValidated,
   target: loginFx,
-})
+});
