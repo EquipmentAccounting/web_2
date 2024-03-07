@@ -1,36 +1,35 @@
-import { createEffect, createEvent, createStore, sample } from 'effector';
-import { FormEvent } from 'react';
+import { createEffect, sample } from 'effector';
+import { createForm } from 'effector-forms';
 
-export type LabelType = {
-  [key: string]: string;
-};
+export const loginForm = createForm({
+  fields: {
+    username: {
+      init: '',
+      rules: [
+        {
+          name: 'username',
+          validator: (value: string) => !!value
+        },
+      ],
+    },
+    password: {
+      init: '',
+      rules: [
+        {
+          name: 'password',
+          validator: (value: string) => !!value
+        },
+      ],
+    },
+  },
+  validateOn: ['submit'],
+})
 
-export type FieldUpdateType = {
-  name: string;
-  value: string;
-};
-
-export const $form = createStore<LabelType>({});
-
-export const formSubmitted = createEvent<FormEvent<HTMLFormElement>>();
-export const fieldUpdate = createEvent<LabelType>();
-
-export const sendFormFx = createEffect(() => {
-  console.log('SEND');
-  return new Promise((rs) => setTimeout(rs, 1000, `Signed in`));
+export const loginFx = createEffect(() => {
+  console.log("HELLO");
 });
-
-$form.on(fieldUpdate, (form, { key, value }: LabelType) => ({
-  ...form,
-  [key]: value,
-}));
 
 sample({
-  clock: formSubmitted,
-  source: $form,
-  target: sendFormFx,
-});
-
-formSubmitted.watch((e: FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-});
+  clock: loginForm.formValidated,
+  target: loginFx,
+})
