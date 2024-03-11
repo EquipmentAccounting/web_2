@@ -27,7 +27,7 @@ const StyledContent = styled('div', {
   variants: {
     state: {
       open: {
-        paddingLeft: '380px',
+        paddingLeft: '340px',
       },
     },
   },

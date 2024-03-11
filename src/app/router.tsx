@@ -1,4 +1,4 @@
-import { AquipmentPage, HomePage, LoginPage, MapPage } from '@/pages';
+import { EquipmentPage, HomePage, LoginPage, MapPage } from '@/pages';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -8,7 +8,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <AquipmentPage />,
+        element: <EquipmentPage />,
       },
       {
         path: '/map',
