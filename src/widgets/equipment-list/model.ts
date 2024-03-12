@@ -1,12 +1,8 @@
 import { Equipment } from '@/shared/types';
+import { SelectItem } from '@/shared/types/select-item';
 import { createEvent, createStore } from 'effector';
 
-export type Item = {
-  id: number;
-  label: string;
-};
-
-const items: Item[] = [
+const items: SelectItem[] = [
   {
     label: 'Все',
     id: 1,
@@ -21,7 +17,7 @@ const items: Item[] = [
   },
 ];
 
-export const setFilter = createEvent<Item>();
+export const setFilter = createEvent<SelectItem>();
 
 export const $items = createStore<Equipment[]>([
   {
@@ -63,8 +59,7 @@ export const $items = createStore<Equipment[]>([
   },
 ]);
 
-export const $filterSelect = createStore<Item[]>(items);
-export const $chosenFilter = createStore<Item>($filterSelect.getState()[0]).on(
-  setFilter,
-  (filter) => filter,
-);
+export const $filterSelect = createStore<SelectItem[]>(items);
+export const $chosenFilter = createStore<SelectItem>(
+  $filterSelect.getState()[0],
+).on(setFilter, (_, filter) => filter);

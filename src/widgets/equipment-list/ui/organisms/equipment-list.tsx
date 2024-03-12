@@ -5,6 +5,7 @@ import { useUnit } from 'effector-react';
 import { Header } from '..';
 import { $items } from '../../model';
 import { Filter } from './filter';
+
 // TODO: добавить сортировку
 export const EquipmentList = () => {
   const equipmentList = useUnit($items);
