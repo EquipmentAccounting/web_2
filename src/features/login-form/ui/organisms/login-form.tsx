@@ -1,11 +1,11 @@
 import { TextField } from '@consta/uikit/TextField';
 import { styled } from '@stitches/react';
-import { useForm } from 'effector-forms';
 import { useUnit } from 'effector-react';
 import { FormEvent } from 'react';
 
 import { loginForm, loginFx } from '../../model';
 import { FormBottom } from '../molecules';
+import { useForm } from 'effector-forms';
 
 export const LoginForm = () => {
   const { fields, hasError, submit } = useForm(loginForm);

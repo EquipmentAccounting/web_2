@@ -72,7 +72,11 @@ export const Map = () => {
   }, [place?.id]);
 
   const handleEquipmentClick = (equipment: Equipment) => {
-    setActiveItem(equipment);
+    if (equipment.id === activeItem?.id) {
+      setActiveItem(null);
+    } else {
+      setActiveItem(equipment);
+    }
   };
 
   return (

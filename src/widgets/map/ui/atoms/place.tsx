@@ -19,7 +19,7 @@ export const Place = () => {
 
   useEffect(() => {
     fetchPlaces();
-  }, []);
+  }, [fetchPlaces]);
 
   return (
     <Select

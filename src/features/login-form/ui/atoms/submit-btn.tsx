@@ -1,7 +1,7 @@
 import { Button } from '@consta/uikit/Button';
-import { useForm } from 'effector-forms';
 
 import { loginForm } from '../../model';
+import { useForm } from 'effector-forms';
 
 export const SubmitButton = () => {
   const { eachValid } = useForm(loginForm);
