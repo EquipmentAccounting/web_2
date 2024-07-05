@@ -28,7 +28,12 @@ export const Categories = () => {
         label='Категория'
         items={categories}
         value={activeCategory}
-        onChange={(item) => setActiveCategoryEv(item || categories[0])}
+        onChange={({ value }) =>
+          setActiveCategoryEv(
+            categories.find((category) => category.value === value) ||
+              categories[0]
+          )
+        }
       />
     </>
   );

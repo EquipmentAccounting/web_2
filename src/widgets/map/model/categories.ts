@@ -9,13 +9,22 @@ export const $activeCategory = createStore<SelectItem | null>(null).on(
   (_, payload) => payload,
 );
 
+const categoryMappings = [
+  { id: 0, label: 'Все оборудование', value: 'all' },
+  { id: 1, label: 'Роутеры', value: 'router' },
+  { id: 2, label: 'Сервера', value: 'server' },
+  { id: 3, label: 'Компьютеры', value: 'desktop' },
+];
+
 export const fetchCategoriesFx = createEffect(async () => {
   return new Promise<SelectItem[]>((resolve) => {
     setTimeout(() => {
       resolve(
-        ['Все оборудование', 'Роутеры', 'Сервера'].map((category, i) => {
-          return { label: category, id: i };
-        }),
+        categoryMappings.map((category) => ({
+          id: category.id,
+          label: category.label,
+          value: category.value,
+        })),
       );
     }, 500);
   });

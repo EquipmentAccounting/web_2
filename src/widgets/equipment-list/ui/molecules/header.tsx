@@ -9,7 +9,7 @@ export const Header = () => {
       <Text>Дата выпуска</Text>
       <Text>Выпуск ПО</Text>
       <Text>Конец ПО</Text>
-      <Text></Text>
+      <Text>Ссылка</Text>
       <Text>Место</Text>
     </HeaderContainer>
   );
